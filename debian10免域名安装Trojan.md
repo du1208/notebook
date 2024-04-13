@@ -1,11 +1,3 @@
-```diff
-+ red
-+666+33333
-- green
-```
-
-
-
 **Trojan** 是近来比较热门的一款代理工具，其设计理念同其他工具有些差别，会将代理数据伪装成标准的 HTTPS 流量，以避免受到 GFW 的影响，因为 GFW 还不至于胆大到阻挡正常的 HTTPS 流量，引起互联网正常业务的故障。GFW 的确强大到可以折数据包根据协议特征码来识别 SS 和 V2Ray 的流量，但是如果代理的数据就是普通的 HTTPS 数据包的话，反倒可以绕过 GFW 的审核。
 
 Trojan 用C 和 C++ 语言开发，执行效率高，Linux 平台和 Windows 平台均表现良好。目前最新的发行版版本为1.13.0，对于特定的 Linux 发行版，Trojan 还可以通过包管理工具安装预编译版本，使用起来就更为方便。
@@ -131,7 +123,7 @@ cp trojan-cert.pem trojan-key.pem /etc/trojan
 cat /proc/sys/kernel/random/uuid
 ```
 如果此时启动 trojan 服务，系统会提示访问被拒绝，查看其服务配置文件”/lib/systemd/system/trojan.service”，发现其中内容中设置了启动 trojan 的用户：
-```
+```diff
 [Unit]
 Description=trojan
 Documentation=man:trojan(1) https://trojan-gfw.github.io/trojan/config https://trojan-gfw.github.io/trojan/
@@ -140,7 +132,7 @@ After=network.target mysql.service mariadb.service mysqld.service
 [Service]
 Type=simple
 StandardError=journal
-User=trojan
++User=trojan
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 ExecStart=/usr/bin/trojan /etc/trojan/config.json
 ExecReload=/bin/kill -HUP $MAINPID
@@ -167,7 +159,7 @@ systemctl status trojan
 **4] trojan 客户端配置(windows)**
 
 trojan 是可执行程序，也具有 Windows 平台的发行版，可以从 GitHub 网站下载，下载完成后，需要将主机生成 的 CA 公钥文件拷贝到 trojan 文件所在目录，然后修改配置文件”config.json”为如下内容：
-```
+```diff
 {
     "run_type": "client",
     "local_addr": "127.0.0.1",
@@ -175,7 +167,7 @@ trojan 是可执行程序，也具有 Windows 平台的发行版，可以从 Git
     "remote_addr": "Trojan_Server_IP_Here",
     "remote_port": 443,
     "password": [
-        "Your_Password_Here"
+        +"Your_Password_Here"
     ],
     "log_level": 1,
     "ssl": {
