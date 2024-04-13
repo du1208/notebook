@@ -7,20 +7,12 @@ cd /usr/src && wget https://github.com/trojan-gfw/trojan/releases/download/v1.16
 ```
 解压Trojan文件
 ```
-tar xvf trojan-1.15.1-linux-amd64.tar.xz
+tar xvf trojan-1.16.0-linux-amd64.tar.xz
 ```
-打开配置文件
+打开配置文件,修改相应的端口和密码
 ```
 cd /usr/src/trojan
-vi config.json
-```
-按i进入编辑模式
-```
-run_type 修改为 “client”
-local_port 修改为 1080
-remote_addr 修改为 vpn.xxx.cn
-remote_port 修改为 443
-password 修改为 [“123456”] trojan服务端验证密码
+nano config.json
 ```
 
 新建文件位置 /etc/systemd/system/trojan.service,配置trojan service，内容如下：
@@ -41,3 +33,4 @@ RestartSec=1s
 [Install]
 WantedBy=multi-user.target
 ```
+原文连接 https://blog.csdn.net/heroguo007/article/details/129858062
