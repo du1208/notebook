@@ -61,6 +61,7 @@ certtool --generate-privkey --outfile trojan-key.pem
 certtool --generate-certificate --load-privkey trojan-key.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem --template server.txt --outfile trojan-cert.pem
 ```
 命令执行完成后，会生成四个证书文件，其中”ca-key.pem”是 CA 证书的私钥；”ca-cert.pem”是 CA 证书服务器的公钥；”trojan-key.pem”是申请到的私钥，”trojan-cert.pem”是申请到的公钥。证书文件生成成功后，则进行一下步。
+
 **3] 安装和配置 Trojan**
 
 安装 Trojan 就采用包管理工具安装
