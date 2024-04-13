@@ -19,7 +19,7 @@ nano /usr/src/trojan/config.json
 nano /etc/systemd/system/trojan.service
 ```
 
-粘贴如下内容
+粘贴如下内容并保存
 
 ```
 [Unit]
