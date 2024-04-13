@@ -1,5 +1,3 @@
-原文链接 https://www.rultr.com/tutorials/vps/3801.html
-
 **Trojan** 是近来比较热门的一款代理工具，其设计理念同其他工具有些差别，会将代理数据伪装成标准的 HTTPS 流量，以避免受到 GFW 的影响，因为 GFW 还不至于胆大到阻挡正常的 HTTPS 流量，引起互联网正常业务的故障。GFW 的确强大到可以折数据包根据协议特征码来识别 SS 和 V2Ray 的流量，但是如果代理的数据就是普通的 HTTPS 数据包的话，反倒可以绕过 GFW 的审核。
 
 Trojan 用C 和 C++ 语言开发，执行效率高，Linux 平台和 Windows 平台均表现良好。目前最新的发行版版本为1.13.0，对于特定的 Linux 发行版，Trojan 还可以通过包管理工具安装预编译版本，使用起来就更为方便。
@@ -195,3 +193,6 @@ trojan 是可执行程序，也具有 Windows 平台的发行版，可以从 Git
 }
 ```
 需要修改的内容也不多，”remote_addr”指的是远端 trojan 服务器地址或域名，此处输入其  IP 地址；”password”设置同服务端一致；”cert”为 CA 服务器公钥，此处用从 trojan 服务器拷贝来的 CA 公钥。设置完成后，就可以双击”trojan.exe”启动程序了。
+
+原文链接 https://www.rultr.com/tutorials/vps/3801.html
+
