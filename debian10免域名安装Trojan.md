@@ -81,7 +81,7 @@ cp trojan-cert.pem trojan-key.pem /etc/trojan
     "remote_addr": "127.0.0.1",
     "remote_port": 80,
     "password": [
-        "<font color="red">Your_Password_Here</font>"
+        "Your_Password_Here"
     ],
     "log_level": 1,
     "ssl": {
