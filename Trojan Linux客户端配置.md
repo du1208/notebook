@@ -15,7 +15,12 @@ cd /usr/src/trojan
 nano config.json
 ```
 
-新建文件位置 /etc/systemd/system/trojan.service,配置trojan service，内容如下：
+新建配置文件
+```
+nano /etc/systemd/system/trojan.service
+```
+
+粘贴如下内容
 
 ```
 [Unit]
@@ -33,4 +38,5 @@ RestartSec=1s
 [Install]
 WantedBy=multi-user.target
 ```
+
 原文连接 https://blog.csdn.net/heroguo007/article/details/129858062
