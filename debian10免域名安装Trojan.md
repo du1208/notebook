@@ -123,7 +123,7 @@ cp trojan-cert.pem trojan-key.pem /etc/trojan
 cat /proc/sys/kernel/random/uuid
 ```
 如果此时启动 trojan 服务，系统会提示访问被拒绝，查看其服务配置文件”/lib/systemd/system/trojan.service”，发现其中内容中设置了启动 trojan 的用户：
-```diff
+```
 [Unit]
 Description=trojan
 Documentation=man:trojan(1) https://trojan-gfw.github.io/trojan/config https://trojan-gfw.github.io/trojan/
@@ -132,7 +132,7 @@ After=network.target mysql.service mariadb.service mysqld.service
 [Service]
 Type=simple
 StandardError=journal
-+User=trojan
+User=trojan
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 ExecStart=/usr/bin/trojan /etc/trojan/config.json
 ExecReload=/bin/kill -HUP $MAINPID
@@ -167,7 +167,7 @@ trojan 是可执行程序，也具有 Windows 平台的发行版，可以从 Git
     "remote_addr": "Trojan_Server_IP_Here",
     "remote_port": 443,
     "password": [
-        +"Your_Password_Here"
++        "Your_Password_Here"
     ],
     "log_level": 1,
     "ssl": {
