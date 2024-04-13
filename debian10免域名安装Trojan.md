@@ -4,6 +4,7 @@ apt-get update
 apt-get install gnutls-bin
 ```
 新建两个文件”ca.txt”和”server.txt”作为签名模板，文件内容如下：
+
 ca.txt
 ```
 cn = "192.168.1.1"
