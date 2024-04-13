@@ -14,7 +14,7 @@ tar xvf trojan-1.16.0-linux-amd64.tar.xz
 nano /usr/src/trojan/config.json
 ```
 
-新建配置文件
+新建服务配置文件
 ```
 nano /etc/systemd/system/trojan.service
 ```
