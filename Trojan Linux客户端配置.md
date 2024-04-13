@@ -9,10 +9,9 @@ cd /usr/src && wget https://github.com/trojan-gfw/trojan/releases/download/v1.16
 ```
 tar xvf trojan-1.16.0-linux-amd64.tar.xz
 ```
-打开配置文件,修改相应的端口和密码
+编辑配置文件,修改相应的端口和密码
 ```
-cd /usr/src/trojan
-nano config.json
+nano /usr/src/trojan/config.json
 ```
 
 新建配置文件
