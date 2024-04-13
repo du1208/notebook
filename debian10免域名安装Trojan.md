@@ -1,6 +1,6 @@
 ```diff
 + red
-
++666
 - green
 ```
 
