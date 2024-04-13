@@ -1,9 +1,9 @@
-**1.开启Trojan客户端代理服务**
+**手动安装Trojan Linux客户端**
 
 下载Trojan客户端官方版本(GitHub)：
 
 ```
-cd /usr/src && wget https://github.com/trojan-gfw/trojan/releases/download/v1.15.1/trojan-1.15.1-linux-amd64.tar.xz
+cd /usr/src && wget https://github.com/trojan-gfw/trojan/releases/download/v1.16.0/trojan-1.16.0-linux-amd64.tar.xz
 ```
 解压Trojan文件
 ```
