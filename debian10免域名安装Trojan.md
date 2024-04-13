@@ -4,7 +4,7 @@ Trojan 用C 和 C++ 语言开发，执行效率高，Linux 平台和 Windows 平
 
 本教程将以 Debian 10 为例，详细讲解如何使用 IP 地址进行自签名，免除使用实际域名的过程，来安装和使用 Trojan，并将预安装版本升级至最新版，以及浏览器的设置来科学上网。
 
-*1] 系统环境说明*
+**1] 系统环境说明**
 
 前面说过，Trojan 会把代理数据伪装成 HTTPS 流量，这就要求数据包的加密与标准的 HTTPS 数据一致，网上很多 Trojan 教程都会指导大家申请一个域名，这样做的目的是可以通过域名签名工具生成服务器域名证书，从而完成 Trojan 的配置。这样做的好处就是签名证书是真实可靠的，可以被浏览器接受，缺点就是签名时效都比较短，需要定期更新证书。
 
@@ -12,7 +12,7 @@ Trojan 用C 和 C++ 语言开发，执行效率高，Linux 平台和 Windows 平
 
 采用 Debian 10 的原因是其包管理工具中已经包含 Trojan 预编译版本，使用包管理工具即可安装，避免依赖包安装不全的情况。
 
-2] 生成 IP  地址自签名证书
+**2] 生成 IP  地址自签名证书**
 
 先大概说下签名证书的原理，想要生成签名证书，需要一个 CA 服务器，然后 Web 服务器会在此 CA 服务器上注册并生成自己的公钥和私钥，而浏览器访问此 Web 服务器时，会首先获得 Web 服务器的证书，证书中包含 CA 证书颁发机构信息、 Web 服务器（证书申请者）信息、公钥以及签名，客户端验证证书的有效性后，会使用公钥将请求信息加密，并生成同 Web 服务器的共享密钥，Web 服务器收到请求信息后，使用私钥解密信息，并通过共享密钥将响应信息加密返回给客户端，客户端收到信息后通过共享密钥解密数据，从而完成 SSL 连接的建立。
 
@@ -60,7 +60,7 @@ certtool --generate-privkey --outfile trojan-key.pem
 certtool --generate-certificate --load-privkey trojan-key.pem --load-ca-certificate ca-cert.pem --load-ca-privkey ca-key.pem --template server.txt --outfile trojan-cert.pem
 ```
 命令执行完成后，会生成四个证书文件，其中”ca-key.pem”是 CA 证书的私钥；”ca-cert.pem”是 CA 证书服务器的公钥；”trojan-key.pem”是申请到的私钥，”trojan-cert.pem”是申请到的公钥。证书文件生成成功后，则进行一下步。
-3] 安装和配置 Trojan
+**3] 安装和配置 Trojan**
 
 安装 Trojan 就采用包管理工具安装
 ```
@@ -154,7 +154,7 @@ systemctl status trojan
 ```
 如果状态信息显示 trojan 已经正常启动了，则可以进行下一步，如启动不成功，则需要根据错误提示查找原因。
 
-4] trojan 客户端配置
+**4] trojan 客户端配置(windows)**
 
 trojan 是可执行程序，也具有 Windows 平台的发行版，可以从 GitHub 网站下载，下载完成后，需要将主机生成 的 CA 公钥文件拷贝到 trojan 文件所在目录，然后修改配置文件”config.json”为如下内容：
 ```
