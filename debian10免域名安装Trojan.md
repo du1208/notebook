@@ -15,6 +15,7 @@ ca
 signing_key
 cert_signing_key
 crl_signing_key
+
 ```
 server.txt
 ```
@@ -24,6 +25,7 @@ expiration_days = 3650
 signing_key
 encryption_key
 tls_www_server
+
 ```
 其中”ca.txt”是用于生成 CA 证书服务器签名的模板文件，而”server.txt”是用于生成 Trojan 使用的服务器签名模板。
 
